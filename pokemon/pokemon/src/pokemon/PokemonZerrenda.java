@@ -31,7 +31,10 @@ public class PokemonZerrenda {
 		return p;
 	}
 	
-	public void gehituPokemon() {
-		this.pokemonZer.add(this.sortuPokemonAusaz());
+	public void gehituPokemon(int zenbat) {
+		while (zenbat > 0) {
+			this.pokemonZer.add(this.sortuPokemonAusaz());
+			zenbat--;
+		}
 	}
 }
