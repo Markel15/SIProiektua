@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ander
- *
- */
-module pokemon {
-}
