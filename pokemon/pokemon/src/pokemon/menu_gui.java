@@ -31,7 +31,7 @@ public class menu_gui extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menu_gui frame = new menu_gui();
+					new menu_gui();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
