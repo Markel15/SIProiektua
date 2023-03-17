@@ -1,13 +1,13 @@
-package klaseak;
+package pokemon;
 
 import java.util.ArrayList;
 
 public class JokalariKatalogoa {
-	private ArrayList<Jokalari> JokalariZer;
+	private ArrayList<Jokalaria> JokalariZer;
 	private static JokalariKatalogoa nJK;
 	
 	private JokalariKatalogoa() {
-		this.JokalariZer=new ArrayList<Jokalari>();
+		this.JokalariZer=new ArrayList<Jokalaria>();
 	}
 	public static synchronized JokalariKatalogoa getnJK() {
 		if(nJK==null) {
@@ -16,10 +16,10 @@ public class JokalariKatalogoa {
 		}
 		return (nJK);
 	}
-	public void addJok (Jokalari pJok) {
+	public void addJok (Jokalaria pJok) {
 		this.JokalariZer.add(pJok);
 	}
-	public void deleteJok (Jokalari pJok) {
+	public void deleteJok (Jokalaria pJok) {
 		this.JokalariZer.remove(pJok);
 	}
 }

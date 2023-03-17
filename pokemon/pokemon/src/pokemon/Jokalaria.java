@@ -1,12 +1,19 @@
 package pokemon;
 
-public abstract class Jokalaria {
-	protected PokemonZerrenda pokemonZer;
+public class Jokalaria {
+	private PokemonZerrenda pokemonZer;
+	private String izena;
 	
-	public Jokalaria() {
+	public Jokalaria(int pKop, int pId) {
 		this.pokemonZer = new PokemonZerrenda();
+		this.izena="Jokalari"+pId;
+		this.sortuTaldea(pKop);
 	}
-	
+	public void sortuTaldea(int pKop) {
+		for (int i=0;i<pKop;i++){
+			this.pokemonZer.gehituPokemon();
+		}
+	}
 	public void erasoEgin(Pokemon nori) {
 		
 	}
