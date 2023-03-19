@@ -3,10 +3,10 @@ package pokemon;
 import java.util.Random;
 
 public abstract class Pokemon {
-	protected int erasoa = 11;
-	protected int defentsa = 3;
-	protected int bizia = 200;
-	protected String mota;
+	private int erasoa = 11;
+	private int defentsa = 3;
+	private int bizia = 200;
+	private String mota;
 	
 	public Pokemon() {
 		this.erasoa = this.erasoa + new Random().nextInt(7) + 1;
@@ -24,5 +24,8 @@ public abstract class Pokemon {
 		PokemonFactory f = PokemonFactory.getPokemonFactory();
 		Pokemon p = f.sortuPokemon("Ur");
 		p.inprimatu();
+	}
+	public void setMota(String pMota) {
+		this.mota=pMota;
 	}
 }

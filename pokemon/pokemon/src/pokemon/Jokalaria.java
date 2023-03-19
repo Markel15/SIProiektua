@@ -1,6 +1,8 @@
 package pokemon;
 
-public class Jokalaria {
+import java.util.Observable;
+
+public class Jokalaria  {
 	private PokemonZerrenda pokemonZer;
 	private String izena;
 	
@@ -13,6 +15,12 @@ public class Jokalaria {
 		for (int i=0;i<pKop;i++){
 			this.pokemonZer.gehituPokemon();
 		}
+	}
+	public String getName() {
+		return this.izena;
+	}
+	public void setName(String pIzena) {
+		this.izena=pIzena;
 	}
 	public void erasoEgin(Pokemon nori) {
 		

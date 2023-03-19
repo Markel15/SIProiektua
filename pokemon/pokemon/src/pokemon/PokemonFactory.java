@@ -1,7 +1,7 @@
 package pokemon;
 
 public class PokemonFactory {
-	private static PokemonFactory inst;
+	private static PokemonFactory inst=null;
 	
 	private PokemonFactory() {
 		

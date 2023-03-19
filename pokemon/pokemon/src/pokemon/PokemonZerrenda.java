@@ -34,5 +34,6 @@ public class PokemonZerrenda {
 	public void gehituPokemon() {
 			Pokemon pok=this.sortuPokemonAusaz();
 			this.pokemonZer.add(pok);
+			pok.inprimatu();
 	}
 }

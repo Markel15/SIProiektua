@@ -1,6 +1,8 @@
 package pokemon;
 
-public class Nagusia {
+import java.util.Observable;
+
+public class Nagusia extends Observable{
 	
 	private static Nagusia nNagusia=null;
 	
@@ -12,13 +14,22 @@ public class Nagusia {
 		}
 		return nNagusia;
 	}
-	public void partidaInizializatu(int pJokalari, int pBot, int pMilisec, int pPok) {//se va a activar desde el listener del menugui al darle a start, entonces van a hacer falta que reciba los parametros
-		for (int i=0;i<=pJokalari;i++) {
-			Jokalaria jok=new Jokalaria(pPok,i);
+	public void partidaInizializatu(int pJokalari, int pBot, int pMilisec, int pPok) {
+		for (int i=0;i<pJokalari;i++) {
+			Jokalaria jok=new Jokalaria(pPok,i+1);
+			JokalariKatalogoa.getnJK().addJok(jok);
+			this.setChanged();
+			notifyObservers(jok);
 		}
-		for (int j=0;j<=pBot;j++) {
-			Bot b=new Bot(pPok,j);
+		for (int j=0;j<pBot;j++) {
+			Bot b=new Bot(pPok,j+1);
+			JokalariKatalogoa.getnJK().addJok(b);
+			this.setChanged();
+			this.notifyObservers(b);
 		}
+	}
+	public void hasi() {
+		
 	}
 
 }
