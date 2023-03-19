@@ -1,7 +1,7 @@
 package pokemon;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Iterator;
 
 public class PokemonZerrenda {
 	private ArrayList<Pokemon> pokemonZer;
@@ -10,30 +10,21 @@ public class PokemonZerrenda {
 		this.pokemonZer = new ArrayList<>();
 	}
 	
-	private Pokemon sortuPokemonAusaz() {
-		Pokemon p = null;
-		int mota = new Random().nextInt(4);
-		PokemonFactory f = PokemonFactory.getPokemonFactory();
-		
-		
-		if (mota == 0) {
-			p = f.sortuPokemon("Ur");
-		}
-		else if (mota == 1) {
-			p = f.sortuPokemon("Su");
-		}
-		else if (mota == 2) {
-			p = f.sortuPokemon("Belar");
-		}
-		else if (mota == 3) {
-			p = f.sortuPokemon("Elektriko");
-		}
-		return p;
-	}
-	
-	public void gehituPokemon() {
-			Pokemon pok=this.sortuPokemonAusaz();
+	public void gehituPokemon(Pokemon pok) {
 			this.pokemonZer.add(pok);
 			pok.inprimatu();
+	}
+	public Pokemon getPokemon_I(int i) {
+		return pokemonZer.get(i);
+	}
+	private Iterator<Pokemon> getIter(){
+		return pokemonZer.iterator();
+	}
+	public void berriztu() {
+		Iterator<Pokemon> iter=this.getIter();
+		while(iter.hasNext()) {
+			Pokemon pok=iter.next();
+			pok.berriztuInfo();
+		}
 	}
 }

@@ -1,19 +1,19 @@
 package pokemon;
 
 import java.util.Observable;
+import java.util.Random;
 
-public class Jokalaria  {
+public class Jokalaria  extends Observable{
 	private PokemonZerrenda pokemonZer;
 	private String izena;
 	
 	public Jokalaria(int pKop, int pId) {
 		this.pokemonZer = new PokemonZerrenda();
 		this.izena="Jokalari"+pId;
-		this.sortuTaldea(pKop);
-	}
-	public void sortuTaldea(int pKop) {
-		for (int i=0;i<pKop;i++){
-			this.pokemonZer.gehituPokemon();
+		for (int i=0;i<pKop;i++) {
+			int mota=new Random().nextInt(4);
+			Pokemon pok=PokemonFactory.getPokemonFactory().createPokemon(mota);
+			this.pokemonZer.gehituPokemon(pok);
 		}
 	}
 	public String getName() {
@@ -22,7 +22,13 @@ public class Jokalaria  {
 	public void setName(String pIzena) {
 		this.izena=pIzena;
 	}
+	public PokemonZerrenda getPokemonZer() {
+		return this.pokemonZer;
+	}
 	public void erasoEgin(Pokemon nori) {
 		
+	}
+	public void berriztuPokemonak() {
+		this.pokemonZer.berriztu();
 	}
 }

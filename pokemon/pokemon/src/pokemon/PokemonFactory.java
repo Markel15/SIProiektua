@@ -14,18 +14,18 @@ public class PokemonFactory {
 		return inst;
 	}
 	
-	public Pokemon sortuPokemon(String pMota) {
+	public Pokemon createPokemon(int pMota) {
 		Pokemon p = null;
-		if (pMota.equals("Ur")) {
+		if (pMota==0) {
 			p = new PokemonUra();
 		}
-		else if (pMota.equals("Su")) {
+		else if (pMota==1) {
 			p = new PokemonSua();
 		}
-		else if (pMota.equals("Belar")) {
+		else if (pMota==2) {
 			p = new PokemonBelarra();
 		}
-		else if (pMota.equals("Elektriko")) {
+		else if (pMota==3) {
 			p = new PokemonElektrikoa();
 		}
 		return p;

@@ -31,5 +31,8 @@ public class Nagusia extends Observable{
 	public void hasi() {
 		
 	}
+	public void amaitu() {
+		
+	}
 
 }
