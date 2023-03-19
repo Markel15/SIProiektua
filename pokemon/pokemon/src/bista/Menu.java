@@ -258,5 +258,9 @@ public class Menu extends JFrame implements Observer{
 		}
 		JokalariPanela jp=new JokalariPanela(j.getName(),3);
 		jp.setVisible(true);
+		for(int i=0;i<3;i++) {
+			j.getPokemonZer().getPokemon_I(i).addObserver((Observer) jp.getPanel_Pokemon().getComponent(i) );
+			j.berriztuPokemonak();
+		}
 	}
 }

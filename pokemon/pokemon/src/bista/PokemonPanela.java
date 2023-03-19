@@ -10,9 +10,17 @@ import java.awt.Color;
 
 import javax.swing.JLabel;
 import java.awt.GridLayout;
-import javax.swing.JProgressBar;
+import java.util.Observable;
+import java.util.Observer;
 
-public class PokemonPanela extends JFrame {
+import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
+
+import pokemon.JokalariKatalogoa;
+import pokemon.Pokemon;
+import java.awt.CardLayout;
+
+public class PokemonPanela extends JPanel implements Observer{
 	private JPanel panel;
 	private JPanel panel_1;
 	private JPanel panel_2;
@@ -48,12 +56,10 @@ public class PokemonPanela extends JFrame {
 	 */
 	public PokemonPanela() {
 		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().add(getPanel(), BorderLayout.NORTH);
-		getContentPane().add(getPanel_1(), BorderLayout.CENTER);
-		getContentPane().add(getPanel_2(), BorderLayout.SOUTH);
-		this.pack();
-
+		this.setLayout(new BorderLayout(0,0));
+		this.add(getPanel(), "North");
+		this.add(getPanel_1(), "Center");
+		this.add(getPanel_2(), "South");
 	}
 
 	private JPanel getPanel() {
@@ -74,7 +80,8 @@ public class PokemonPanela extends JFrame {
 	private JPanel getPanel_1() {
 		if (panel_1 == null) {
 			panel_1 = new JPanel();
-			panel_1.add(getLblNewLabel());
+			panel_1.setLayout(new CardLayout(0, 0));
+			panel_1.add(getLblNewLabel(), "name_2349460432200");
 		}
 		return panel_1;
 	}
@@ -88,6 +95,7 @@ public class PokemonPanela extends JFrame {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel(new ImageIcon("./src/irudiak/Electric/0pikachu.png"));
+			lblNewLabel.setHorizontalAlignment(0);
 		}
 		return lblNewLabel;
 	}
@@ -142,11 +150,39 @@ public class PokemonPanela extends JFrame {
 	private JProgressBar getBiziBarra() {
 		if (progressBar == null) {
 			progressBar = new JProgressBar();
-			this.progressBar.setBackground(Color.green);
+			this.progressBar.setBackground(Color.white);
+			this.progressBar.setForeground(Color.green);
 			this.progressBar.setString("Health");
 			this.progressBar.setStringPainted(true);
 			this.progressBar.setBorderPainted(true);
 		}
 		return progressBar;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		Pokemon pok=(Pokemon)arg;
+		this.getLblNewLabel_5().setText(Integer.toString(pok.getEraso()));
+		this.getLblNewLabel_6().setText(Integer.toString(pok.getDef()));
+		this.getLblNewLabel_7().setText(Integer.toString(pok.getBiz()));
+		this.getLblNewLabel_8().setText(pok.getMota());
+		this.getBiziBarra().setValue(pok.getBiz());
+		this.setArgazkia(pok.getMota());
+		
+	}
+	private void setArgazkia(String pMota) {
+		if(pMota.equals("Belarra")) {
+			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Grass/0bulbasaur.png"));
+		}
+		else if(pMota.equals("Elektrikoa")) {
+			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Electric/0pikachu.png"));
+		}
+		else if(pMota.equals("Sua")) {
+			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Fire/0charmander.png"));
+		}
+		else if(pMota.equals("Ur")) {
+			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Water/0squirtle.png"));
+		}
 	}
 }
