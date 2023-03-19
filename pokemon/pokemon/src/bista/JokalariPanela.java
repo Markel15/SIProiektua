@@ -9,10 +9,16 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.Random;
 import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.Icon;
+import java.awt.GridLayout;
 
 public class JokalariPanela extends JFrame {
-	private JLabel lblNewLabel;
+	private JPanel panelJokalari;
 	private JButton btnNewButton;
+	private JLabel lblNewLabel;
+	private JPanel panelEkipoa;
+	private PokemonPanela[] PanelZer = new PokemonPanela[3];
 
 	/**
 	 * Launch the application.
@@ -34,27 +40,50 @@ public class JokalariPanela extends JFrame {
 	 * Create the frame.
 	 */
 	public JokalariPanela(String pIzena, int pKop) {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 338, 68);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().add(getLblTrainer(), BorderLayout.CENTER);
-		getContentPane().add(getBtnNewButton(), BorderLayout.NORTH);
 		setLocationRelativeTo(null);
 		pack();
-		this.getBtnNewButton().setText(pIzena);
+		getContentPane().add(getPanelJokalari(), BorderLayout.WEST);
+		getContentPane().add(getPanelEkipoa(), BorderLayout.CENTER);
 	}
-
-	private JLabel getLblTrainer() {
-		if (lblNewLabel == null) {
-			int zenb = new Random().nextInt(6);
-			lblNewLabel = new JLabel(new ImageIcon("./src/irudiak/Trainers/trainer"+zenb+".png"));
+	private JPanel getPanelJokalari() {
+		if (panelJokalari == null) {
+			panelJokalari = new JPanel();
+			panelJokalari.add(getBtnNewButton_1());
+			panelJokalari.add(getLblNewLabel());
 		}
-		return lblNewLabel;
+		return panelJokalari;
 	}
-	private JButton getBtnNewButton() {
+	private JButton getBtnNewButton_1() {
 		if (btnNewButton == null) {
-			btnNewButton = new JButton("g@!");
-			btnNewButton.setBackground(Color.green);
+			btnNewButton = new JButton("<dynamic>");
+			btnNewButton.setBackground(Color.GREEN);
 		}
 		return btnNewButton;
 	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel((Icon) null);
+		}
+		return lblNewLabel;
+	}
+	private JPanel getPanelEkipoa() {
+		if (panelEkipoa == null) {
+			panelEkipoa = new JPanel();
+			panelEkipoa.setLayout(new GridLayout(1, 3, 0, 0));
+			ekipoaLortu(3);
+		}
+		return panelEkipoa;
+	}
+	private void ekipoaLortu(int kop) {
+		int ind=0;
+		while(ind<3) {
+			PokemonPanela p = new PokemonPanela();
+			this.PanelZer[ind]= p;
+			ind++;
+			this.panelEkipoa.add(p);
+		}
+	}
+	
 }
