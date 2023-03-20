@@ -15,17 +15,19 @@ public class Nagusia extends Observable{
 		return nNagusia;
 	}
 	public void partidaInizializatu(int pJokalari, int pBot, int pMilisec, int pPok) {
+		int jokKont=0;
 		for (int i=0;i<pJokalari;i++) {
-			Jokalaria jok=new Jokalaria(pPok,i+1);
+			Jokalaria jok=new Jokalaria(pPok,i);
 			JokalariKatalogoa.getnJK().addJok(jok);
 			this.setChanged();
-			notifyObservers(jok);
+			notifyObservers(jok.getId());
+			jokKont++;
 		}
 		for (int j=0;j<pBot;j++) {
-			Bot b=new Bot(pPok,j+1);
+			Bot b=new Bot(pPok,j+jokKont);
 			JokalariKatalogoa.getnJK().addJok(b);
 			this.setChanged();
-			this.notifyObservers(b);
+			this.notifyObservers(b.getId());
 		}
 	}
 	public void hasi() {

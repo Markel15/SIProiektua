@@ -1,8 +1,8 @@
 package pokemon;
 
 public class PokemonBelarra extends Pokemon {
-	public PokemonBelarra() {
-		super();
+	public PokemonBelarra(int pId,int pJokId) {
+		super(pId,pJokId);
 		this.setMota("Belarra");
 	}
 }

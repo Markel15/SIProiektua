@@ -1,6 +1,7 @@
 package pokemon;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class JokalariKatalogoa {
 	private ArrayList<Jokalaria> JokalariZer;
@@ -21,5 +22,12 @@ public class JokalariKatalogoa {
 	}
 	public void deleteJok (Jokalaria pJok) {
 		this.JokalariZer.remove(pJok);
+	}
+	private Iterator<Jokalaria> getIter(){
+		return JokalariZer.iterator();
+	}
+	public Jokalaria jokalariAurkituIdz(int pId) {
+		Jokalaria emaitza=this.JokalariZer.get(pId);
+		return emaitza;
 	}
 }

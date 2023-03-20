@@ -27,4 +27,17 @@ public class PokemonZerrenda {
 			pok.berriztuInfo();
 		}
 	}
+	public Pokemon aurkituPokemonIdz(int pId) {
+		Iterator<Pokemon> itr=this.getIter();
+		boolean aurk=false;
+		Pokemon emaitza=null;
+		while(itr.hasNext()&&!aurk) {
+			Pokemon pok=itr.next();
+			if(pok.getId()==pId) {
+				emaitza=pok;
+				aurk=true;
+			}
+		}
+		return emaitza;
+	}
 }
