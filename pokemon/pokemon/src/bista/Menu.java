@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 
 import pokemon.Jokalaria;
 import pokemon.Bot;
+import pokemon.JokalariKatalogoa;
 import pokemon.Nagusia;
 
 import javax.swing.ImageIcon;
@@ -226,7 +227,7 @@ public class Menu extends JFrame implements Observer{
 			if(e.getSource()==getBtn_Start()) {//Hurrengo orria ireki eta partida inizializatu
 				boolean ondo=false;
 				try {
-				Nagusia.getNagusia().partidaInizializatu(1 ,1, Integer.parseInt(getTextField_2().getText()),3);
+				Nagusia.getNagusia().partidaInizializatu(1 ,1, 5,3);//Integer.parseInt(getTextField_2().getText(), para leer el bloque de texto
 				Nagusia.getNagusia().hasi();
 				setVisible(false);
 				}
@@ -249,13 +250,7 @@ public class Menu extends JFrame implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		Jokalaria j;
-		if(arg instanceof Bot){
-			j=(Bot) arg;
-		}
-		else {
-			j=(Jokalaria) arg;
-		}
+		Jokalaria j=JokalariKatalogoa.getnJK().jokalariAurkituIdz((int)arg);
 		JokalariPanela jp=new JokalariPanela(j.getName(),3);
 		jp.setVisible(true);
 		for(int i=0;i<3;i++) {

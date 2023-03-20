@@ -17,6 +17,7 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 
 import pokemon.JokalariKatalogoa;
+import pokemon.Jokalaria;
 import pokemon.Pokemon;
 import java.awt.CardLayout;
 
@@ -162,7 +163,11 @@ public class PokemonPanela extends JPanel implements Observer{
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		Pokemon pok=(Pokemon)arg;
+		Object [] arr= (Object[]) arg;
+		int jokId=(int)arr[0];
+		int pokId=(int)arr[1];
+		Jokalaria jok=JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId);
+		Pokemon pok=jok.aurkituPokemonIdz(pokId);
 		this.getLblNewLabel_5().setText(Integer.toString(pok.getEraso()));
 		this.getLblNewLabel_6().setText(Integer.toString(pok.getDef()));
 		this.getLblNewLabel_7().setText(Integer.toString(pok.getBiz()));
