@@ -10,12 +10,16 @@ import java.awt.Color;
 
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 
+import pokemon.Bot;
+import pokemon.BurrukaKudeatzailea;
 import pokemon.JokalariKatalogoa;
 import pokemon.Jokalaria;
 import pokemon.Pokemon;
@@ -35,6 +39,8 @@ public class PokemonPanela extends JPanel implements Observer{
 	private JLabel lblNewLabel_7;
 	private JLabel lblNewLabel_8;
 	private JProgressBar progressBar;
+	private int jokId;
+	private int pokId;
 
 	/**
 	 * Launch the application.
@@ -43,7 +49,7 @@ public class PokemonPanela extends JPanel implements Observer{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PokemonPanela frame = new PokemonPanela();
+					PokemonPanela frame = new PokemonPanela(0,0);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,12 +61,14 @@ public class PokemonPanela extends JPanel implements Observer{
 	/**
 	 * Create the frame.
 	 */
-	public PokemonPanela() {
+	public PokemonPanela(int jokId, int pokId) {
 		setBounds(100, 100, 450, 300);
 		this.setLayout(new BorderLayout(0,0));
 		this.add(getPanel(), "North");
 		this.add(getPanel_1(), "Center");
 		this.add(getPanel_2(), "South");
+		this.jokId=jokId;
+		this.pokId=pokId;
 	}
 
 	private JPanel getPanel() {
@@ -97,6 +105,7 @@ public class PokemonPanela extends JPanel implements Observer{
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel(new ImageIcon("./src/irudiak/Electric/0pikachu.png"));
 			lblNewLabel.setHorizontalAlignment(0);
+			lblNewLabel.addMouseListener(new MouseHandler());
 		}
 		return lblNewLabel;
 	}
@@ -156,6 +165,7 @@ public class PokemonPanela extends JPanel implements Observer{
 			this.progressBar.setString("Health");
 			this.progressBar.setStringPainted(true);
 			this.progressBar.setBorderPainted(true);
+			this.progressBar.setValue(100);
 		}
 		return progressBar;
 	}
@@ -170,11 +180,12 @@ public class PokemonPanela extends JPanel implements Observer{
 		Pokemon pok=jok.aurkituPokemonIdz(pokId);
 		this.getLblNewLabel_5().setText(Integer.toString(pok.getEraso()));
 		this.getLblNewLabel_6().setText(Integer.toString(pok.getDef()));
-		this.getLblNewLabel_7().setText(Integer.toString(pok.getBiz()));
+		this.getLblNewLabel_7().setText(Integer.toString(pok.getBiz())+"/"+Integer.toString(pok.getBiziMax()));
 		this.getLblNewLabel_8().setText(pok.getMota());
-		this.getBiziBarra().setValue(pok.getBiz());
+		this.getBiziBarra().setValue((pok.getBiz()*100)/pok.getBiziMax());
+		if(this.getBiziBarra().getValue()<=50)this.getBiziBarra().setForeground(Color.yellow);
+		else if(this.getBiziBarra().getValue()<=20)this.getBiziBarra().setForeground(Color.red);
 		this.setArgazkia(pok.getMota());
-		
 	}
 	private void setArgazkia(String pMota) {
 		if(pMota.equals("Belarra")) {
@@ -189,5 +200,20 @@ public class PokemonPanela extends JPanel implements Observer{
 		else if(pMota.equals("Ur")) {
 			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Water/0squirtle.png"));
 		}
+	}
+	private class MouseHandler extends MouseAdapter{
+		 @Override
+	        public void mouseClicked(final MouseEvent e) {
+			 if(e.getSource().equals(PokemonPanela.this.getLblNewLabel())&& PokemonPanela.this.getLblNewLabel().isEnabled() && BurrukaKudeatzailea.getnBK().getErasoPokemon()==null && JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa()) {
+				 PokemonPanela.this.getLblNewLabel().setEnabled(false);
+				 BurrukaKudeatzailea.getnBK().setErasoPokemon(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getPokemonZer().getPokemon_I(pokId));
+			 }
+			 else if(PokemonPanela.this.getLblNewLabel().isEnabled() && !JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa()) {
+				 BurrukaKudeatzailea.getnBK().setJasoPokemon(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getPokemonZer().getPokemon_I(pokId));
+				 BurrukaKudeatzailea.getnBK().burrukaKudeatu();
+			 }
+			 
+			 
+		 }
 	}
 }

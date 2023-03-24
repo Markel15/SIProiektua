@@ -17,6 +17,7 @@ public class JokalariPanela extends JFrame {
 	private JButton btnNewButton;
 	private JPanel panel;
 	private JPanel panel_1;
+	private int jokId;
 
 	/**
 	 * Launch the application.
@@ -25,7 +26,7 @@ public class JokalariPanela extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JokalariPanela frame = new JokalariPanela("Burrukalaria",3);
+					JokalariPanela frame = new JokalariPanela(0,"Burrukalaria",3);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,17 +38,18 @@ public class JokalariPanela extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public JokalariPanela(String pIzena, int pKop) {
+	public JokalariPanela(int pId,String pIzena, int pKop) {
 		setBounds(100, 100, 450, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().add(getPanel(), BorderLayout.WEST);
 		getContentPane().add(getPanel_Pokemon(), BorderLayout.CENTER);
 		getPanel_Pokemon().setLayout(new GridLayout(1, pKop, 2, 0));
 		for (int i=0;i<pKop;i++) {
-			PokemonPanela pp=new PokemonPanela();
+			PokemonPanela pp=new PokemonPanela(pId,i);
 			this.getPanel_Pokemon().add(pp);
 		}
 		this.setTitle(pIzena);
+		this.jokId=pId;
 	}
 
 	private JLabel getLblTrainer() {
@@ -61,6 +63,7 @@ public class JokalariPanela extends JFrame {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("g@!");
 			btnNewButton.setBackground(Color.green);
+			btnNewButton.setEnabled(false);
 		}
 		return btnNewButton;
 	}
