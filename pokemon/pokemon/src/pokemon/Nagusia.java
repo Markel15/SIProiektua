@@ -31,7 +31,7 @@ public class Nagusia extends Observable{
 		}
 	}
 	public void hasi() {
-		
+		JokalariKatalogoa.getnJK().jokatu();	
 	}
 	public void amaitu() {
 		

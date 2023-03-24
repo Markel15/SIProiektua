@@ -51,10 +51,20 @@ public abstract class Pokemon extends Observable{
 	public int getJokId() {
 		return this.jokId;
 	}
+	public void setBizia(int pEmaitza) {
+		this.bizia=pEmaitza;;
+	}
 	public void berriztuInfo() {
 		Object[] infoArray= {this.getJokId(),this.getId()};
 		this.setChanged();
 		this.notifyObservers(infoArray);
+	}
+	public void erasotu(Pokemon pErasotua) {
+		int def=pErasotua.getDef();
+		int biz=pErasotua.getBiz();
+		int era=this.getEraso();
+		pErasotua.setBizia(biz-era+def);
+		pErasotua.berriztuInfo();
 	}
 	
 }

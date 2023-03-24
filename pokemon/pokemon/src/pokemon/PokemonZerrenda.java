@@ -27,7 +27,10 @@ public class PokemonZerrenda {
 			pok.berriztuInfo();
 		}
 	}
-	public Pokemon aurkituPokemonIdz(int pId) {
+	public Pokemon getPokemonI(int pId) {//listaren barruan aurkitzeko
+		return pokemonZer.get(pId);
+	}
+	public Pokemon aurkituPokemonIdz(int pId) {//pokemon guztietatik aurkitzeko
 		Iterator<Pokemon> itr=this.getIter();
 		boolean aurk=false;
 		Pokemon emaitza=null;

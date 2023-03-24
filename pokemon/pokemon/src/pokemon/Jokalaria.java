@@ -7,6 +7,7 @@ public class Jokalaria  extends Observable{
 	private PokemonZerrenda pokemonZer;
 	private String izena;
 	private int id;
+	private boolean turnoa=false;
 	
 	public Jokalaria(int pKop, int pId) {
 		this.pokemonZer = new PokemonZerrenda();
@@ -27,7 +28,7 @@ public class Jokalaria  extends Observable{
 	public PokemonZerrenda getPokemonZer() {
 		return this.pokemonZer;
 	}
-	public void erasoEgin(Pokemon nori) {
+	public void erasoEgin() {
 		
 	}
 	public void berriztuPokemonak() {
@@ -41,5 +42,12 @@ public class Jokalaria  extends Observable{
 	}
 	public Pokemon aurkituPokemonIdz(int pId) {
 		return this.pokemonZer.aurkituPokemonIdz(pId);
+	}
+	public void setTurnoa(boolean b) {
+		this.turnoa=b;
+		System.out.println(this.izena + "-ren turnoa da");
+	}
+	public boolean getTurnoa() {
+		return this.turnoa;
 	}
 }

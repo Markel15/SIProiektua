@@ -5,4 +5,7 @@ public class Bot extends Jokalaria{
 		super(pPok,pId);
 		super.setName("Bot"+pId);
 	}
+	
+	public void erasoEgin() {
+	}
 }
