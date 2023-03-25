@@ -169,6 +169,9 @@ public class PokemonPanela extends JPanel implements Observer{
 		}
 		return progressBar;
 	}
+	public void setLblEnabled() {
+		this.getLblNewLabel().setEnabled(true);
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -184,7 +187,7 @@ public class PokemonPanela extends JPanel implements Observer{
 		this.getLblNewLabel_8().setText(pok.getMota());
 		this.getBiziBarra().setValue((pok.getBiz()*100)/pok.getBiziMax());
 		if(this.getBiziBarra().getValue()<=50)this.getBiziBarra().setForeground(Color.yellow);
-		else if(this.getBiziBarra().getValue()<=20)this.getBiziBarra().setForeground(Color.red);
+		if(this.getBiziBarra().getValue()<=20)this.getBiziBarra().setForeground(Color.red);
 		this.setArgazkia(pok.getMota());
 	}
 	private void setArgazkia(String pMota) {
@@ -212,8 +215,6 @@ public class PokemonPanela extends JPanel implements Observer{
 				 BurrukaKudeatzailea.getnBK().setJasoPokemon(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getPokemonZer().getPokemon_I(pokId));
 				 BurrukaKudeatzailea.getnBK().burrukaKudeatu();
 			 }
-			 
-			 
 		 }
 	}
 }

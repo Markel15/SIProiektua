@@ -252,6 +252,7 @@ public class Menu extends JFrame implements Observer{
 		// TODO Auto-generated method stub
 		Jokalaria j=JokalariKatalogoa.getnJK().jokalariAurkituIdz((int)arg);
 		JokalariPanela jp=new JokalariPanela((int)arg,j.getName(),3);
+		JokalariKatalogoa.getnJK().jokalariAurkituIdz((int) arg).addObserver((Observer) jp);
 		jp.setVisible(true);
 		for(int i=0;i<3;i++) {
 			j.getPokemonZer().getPokemon_I(i).addObserver((Observer) jp.getPanel_Pokemon().getComponent(i) );
