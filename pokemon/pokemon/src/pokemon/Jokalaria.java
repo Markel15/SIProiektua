@@ -3,11 +3,11 @@ package pokemon;
 import java.util.Observable;
 import java.util.Random;
 
-public class Jokalaria  extends Observable{
+public class Jokalaria extends Observable{
 	private PokemonZerrenda pokemonZer;
 	private String izena;
 	private int id;
-	private boolean turnoa=false;
+	private boolean turnoa;
 	
 	public Jokalaria(int pKop, int pId) {
 		this.pokemonZer = new PokemonZerrenda();
@@ -18,6 +18,7 @@ public class Jokalaria  extends Observable{
 			this.pokemonZer.gehituPokemon(pok);
 		}
 		this.id=pId;
+		this.turnoa=false;
 	}
 	public String getName() {
 		return this.izena;
@@ -45,7 +46,10 @@ public class Jokalaria  extends Observable{
 	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
-		System.out.println(this.izena + "-ren turnoa da");
+		System.out.println(this.getName() + Boolean.toString(b)+ "turnoa da");
+		Object[] infoArray= {this.getId(),this.getTurnoa()};
+		this.setChanged();
+		this.notifyObservers(infoArray);
 	}
 	public boolean getTurnoa() {
 		return this.turnoa;

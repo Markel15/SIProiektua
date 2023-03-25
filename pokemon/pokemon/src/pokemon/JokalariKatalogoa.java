@@ -31,13 +31,24 @@ public class JokalariKatalogoa {
 		Jokalaria emaitza=this.JokalariZer.get(pId);
 		return emaitza;
 	}
-	public Jokalaria getJokalariaAusaz() {
+	public Jokalaria getJokalariaAusaz(Jokalaria pJok) {
 		Random rand = new Random();
-		int jok=rand.nextInt(JokalariZer.size());
-		return JokalariZer.get(jok);
+		boolean aurk=false;
+		Jokalaria emaitza=null;
+		while(!aurk) {
+			int jok=rand.nextInt(JokalariZer.size());
+			emaitza=JokalariZer.get(jok);
+			if(!emaitza.equals(pJok)) aurk=true;
+		}
+		return emaitza;
 	}
 	public void jokatu() {
-		Jokalaria jok=this.getJokalariaAusaz();
+		Iterator<Jokalaria> itr=this.getIter();
+		while(itr.hasNext()) {
+			Jokalaria j=itr.next();
+			j.setTurnoa(false);
+		}
+		Jokalaria jok=this.getJokalariaAusaz(null);
 		jok.setTurnoa(true);
 		jok.erasoEgin();
 	}
