@@ -66,5 +66,8 @@ public abstract class Pokemon extends Observable{
 		pErasotua.setBizia(biz-era+def);
 		pErasotua.berriztuInfo();
 	}
+	public boolean bizirikDago() {
+		return bizia>0;
+	}
 	
 }

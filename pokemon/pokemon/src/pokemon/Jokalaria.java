@@ -1,5 +1,6 @@
 package pokemon;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
@@ -53,5 +54,8 @@ public class Jokalaria extends Observable{
 	}
 	public boolean getTurnoa() {
 		return this.turnoa;
+	}
+	public PokemonZerrenda getBizirikDaudenak(){
+		return this.pokemonZer.getBizirikDaudenak();
 	}
 }

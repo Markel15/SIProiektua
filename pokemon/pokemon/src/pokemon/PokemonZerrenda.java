@@ -43,4 +43,13 @@ public class PokemonZerrenda {
 		}
 		return emaitza;
 	}
+	public PokemonZerrenda getBizirikDaudenak() {
+		PokemonZerrenda emaitza=new PokemonZerrenda();
+		Iterator<Pokemon>itr=this.getIter();
+		while(itr.hasNext()) {
+			Pokemon p=itr.next();
+			if (p.bizirikDago()) emaitza.gehituPokemon(p);
+		}
+		return emaitza;
+	}
 }
