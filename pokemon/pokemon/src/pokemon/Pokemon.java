@@ -21,12 +21,6 @@ public abstract class Pokemon extends Observable{
 		this.jokId=jokId;
 	}
 	
-	public void inprimatu() {
-		System.out.println(this.erasoa);
-		System.out.println(this.defentsa);
-		System.out.println(this.bizia);
-	}
-	
 	public void setMota(String pMota) {
 		this.mota=pMota;
 	}

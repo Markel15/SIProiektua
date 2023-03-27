@@ -12,7 +12,6 @@ public class PokemonZerrenda {
 	
 	public void gehituPokemon(Pokemon pok) {
 			this.pokemonZer.add(pok);
-			pok.inprimatu();
 	}
 	public Pokemon getPokemon_I(int i) {
 		return pokemonZer.get(i);

@@ -2,6 +2,7 @@ package pokemon;
 
 import java.util.Observable;
 
+
 public class Nagusia extends Observable{
 	
 	private static Nagusia nNagusia=null;

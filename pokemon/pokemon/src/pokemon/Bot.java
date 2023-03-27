@@ -2,6 +2,8 @@ package pokemon;
 import java.util.Random;
 
 public class Bot extends Jokalaria{
+	private int kont=1;
+	
 	public Bot(int pPok,int pId) {
 		super(pPok,pId);
 		super.setName("Bot"+pId);
@@ -22,7 +24,10 @@ public class Bot extends Jokalaria{
 				i++;
 			}
 		}
-		if(amaitu) Nagusia.getNagusia().amaitu();
+		if(this.getBizirikDaudenak().getSize()<=0) {
+			this.setGaldu(); 
+			System.out.println(this.getName()+"-ek galdu du");
+		}
 		else Nagusia.getNagusia().hasi();
 	}
 }

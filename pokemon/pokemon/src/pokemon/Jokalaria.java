@@ -9,6 +9,7 @@ public class Jokalaria extends Observable{
 	private String izena;
 	private int id;
 	private boolean turnoa;
+	private boolean galdu;
 	
 	public Jokalaria(int pKop, int pId) {
 		this.pokemonZer = new PokemonZerrenda();
@@ -20,6 +21,7 @@ public class Jokalaria extends Observable{
 		}
 		this.id=pId;
 		this.turnoa=false;
+		this.galdu=false;
 	}
 	public String getName() {
 		return this.izena;
@@ -31,6 +33,11 @@ public class Jokalaria extends Observable{
 		return this.pokemonZer;
 	}
 	public void erasoEgin() {
+		if(this.getBizirikDaudenak().getSize()==0) {
+			this.setGaldu();
+			System.out.println(this.getName() + "-ek galdu du");
+			Nagusia.getNagusia().amaitu();
+		}
 		
 	}
 	public void berriztuPokemonak() {
@@ -47,8 +54,7 @@ public class Jokalaria extends Observable{
 	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
-		System.out.println(this.getName() + Boolean.toString(b)+ "turnoa da");
-		Object[] infoArray= {this.getId(),this.getTurnoa()};
+		Object[] infoArray= {this.getTurnoa(),this.getGaldu()};
 		this.setChanged();
 		this.notifyObservers(infoArray);
 	}
@@ -57,5 +63,11 @@ public class Jokalaria extends Observable{
 	}
 	public PokemonZerrenda getBizirikDaudenak(){
 		return this.pokemonZer.getBizirikDaudenak();
+	}
+	public boolean getGaldu() {
+		return this.galdu;
+	}
+	public void setGaldu() {
+		this.galdu=true;
 	}
 }
