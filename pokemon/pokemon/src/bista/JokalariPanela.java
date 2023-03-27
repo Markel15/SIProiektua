@@ -96,17 +96,23 @@ public class JokalariPanela extends JFrame implements Observer{
 	public int getJokId() {
 		return this.jokId;
 	}
+	public boolean botoiaDoa() {
+		return this.getBtnNewButton().isEnabled();
+	}
 	private class MouseHandler extends MouseAdapter{
 		 @Override
 	        public void mouseClicked(final MouseEvent e) {
-			 	if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getTurnoa() && ! (JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId())instanceof Bot)) {
+			 	if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getTurnoa() && ! (JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId())instanceof Bot) && JokalariPanela.this.isEnabled()) {
 			 		for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {//Igual se puede hacer con lo de Java8
 			 			PokemonPanela pp=(PokemonPanela)JokalariPanela.this.getPanel_Pokemon().getComponent(i);
 			 			if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getPokemonZer().aurkituPokemonIdz(pp.getPokId()).bizirikDago()) {
 			 				pp.setLblDisabled();
 			 			}
+			 			else pp.setLblEnabled();
 			 		}
-			 		Nagusia.getNagusia().hasi();
+			 		if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getGaldu()) {
+			 			Nagusia.getNagusia().hasi();
+			 		}
 			 	}
 			 	
 		 }
@@ -115,18 +121,22 @@ public class JokalariPanela extends JFrame implements Observer{
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		Object [] arr= (Object[]) arg;
-		int id=(int) arr[0];
-		boolean turnoa=(boolean)arr[1];
-		if(turnoa) {
-			this.getBtnNewButton().setText("g@!");
-			this.getBtnNewButton().setBackground(Color.green);
+		boolean turnoa=(boolean)arr[0];
+		boolean galdu=(boolean)arr[1];
+		if(galdu) {
+			this.getBtnNewButton().setText("DEFEATED");
+			this.getBtnNewButton().setBackground(Color.red);
+			this.getBtnNewButton().setEnabled(false);
 		}
 		else {
-			this.getBtnNewButton().setText("wait");
-			this.getBtnNewButton().setBackground(Color.yellow);
-			for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {//Igual se puede hacer con lo de Java8
-	 			PokemonPanela pp=(PokemonPanela)JokalariPanela.this.getPanel_Pokemon().getComponent(i);
-	 		}
+			if(turnoa) {
+				this.getBtnNewButton().setText("g@!");
+				this.getBtnNewButton().setBackground(Color.green);
+			}
+			else {
+				this.getBtnNewButton().setText("wait");
+				this.getBtnNewButton().setBackground(Color.yellow);
+			}
 		}
 	}
 }

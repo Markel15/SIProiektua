@@ -22,7 +22,7 @@ import pokemon.Nagusia;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
-import java.awt.Font;
+
 
 public class Menu extends JFrame implements Observer{
 	private JPanel panel;
