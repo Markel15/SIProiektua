@@ -172,6 +172,13 @@ public class PokemonPanela extends JPanel implements Observer{
 	public void setLblEnabled() {
 		this.getLblNewLabel().setEnabled(true);
 	}
+	public void setLblDisabled() {
+		this.getLblNewLabel().setEnabled(false);
+		
+	}
+	public int getPokId() {
+		return this.pokId;
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -189,6 +196,10 @@ public class PokemonPanela extends JPanel implements Observer{
 		if(this.getBiziBarra().getValue()<=50)this.getBiziBarra().setForeground(Color.yellow);
 		if(this.getBiziBarra().getValue()<=20)this.getBiziBarra().setForeground(Color.red);
 		this.setArgazkia(pok.getMota());
+		if(!pok.bizirikDago()) {
+			this.getPanel().setVisible(false);
+			this.getLblNewLabel().setEnabled(false);
+		}
 	}
 	private void setArgazkia(String pMota) {
 		if(pMota.equals("Belarra")) {
@@ -207,7 +218,7 @@ public class PokemonPanela extends JPanel implements Observer{
 	private class MouseHandler extends MouseAdapter{
 		 @Override
 	        public void mouseClicked(final MouseEvent e) {
-			 if(e.getSource().equals(PokemonPanela.this.getLblNewLabel())&& PokemonPanela.this.getLblNewLabel().isEnabled() && BurrukaKudeatzailea.getnBK().getErasoPokemon()==null && JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa()) {
+			 if(PokemonPanela.this.getLblNewLabel().isEnabled() && BurrukaKudeatzailea.getnBK().getErasoPokemon()==null && JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa()) {
 				 PokemonPanela.this.getLblNewLabel().setEnabled(false);
 				 BurrukaKudeatzailea.getnBK().setErasoPokemon(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getPokemonZer().getPokemon_I(pokId));
 			 }

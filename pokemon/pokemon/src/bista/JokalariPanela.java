@@ -102,7 +102,9 @@ public class JokalariPanela extends JFrame implements Observer{
 			 	if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getTurnoa() && ! (JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId())instanceof Bot)) {
 			 		for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {//Igual se puede hacer con lo de Java8
 			 			PokemonPanela pp=(PokemonPanela)JokalariPanela.this.getPanel_Pokemon().getComponent(i);
-			 			pp.setLblEnabled();
+			 			if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getPokemonZer().aurkituPokemonIdz(pp.getPokId()).bizirikDago()) {
+			 				pp.setLblDisabled();
+			 			}
 			 		}
 			 		Nagusia.getNagusia().hasi();
 			 	}
@@ -124,7 +126,6 @@ public class JokalariPanela extends JFrame implements Observer{
 			this.getBtnNewButton().setBackground(Color.yellow);
 			for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {//Igual se puede hacer con lo de Java8
 	 			PokemonPanela pp=(PokemonPanela)JokalariPanela.this.getPanel_Pokemon().getComponent(i);
-	 			pp.setLblEnabled();
 	 		}
 		}
 	}
