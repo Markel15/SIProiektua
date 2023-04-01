@@ -11,7 +11,7 @@ public class JokalariKatalogoa {
 	private JokalariKatalogoa() {
 		this.JokalariZer=new ArrayList<Jokalaria>();
 	}
-	public static synchronized JokalariKatalogoa getnJK() {
+	public static JokalariKatalogoa getnJK() {
 		if(nJK==null) {
 			nJK= new JokalariKatalogoa();
 			
@@ -49,7 +49,11 @@ public class JokalariKatalogoa {
 			j.setTurnoa(false);
 		}
 		Jokalaria jok=this.getJokalariaAusaz(null);
+		if(!(jok instanceof Bot)) Nagusia.getNagusia().amaitu();
 		jok.setTurnoa(true);
 		jok.erasoEgin();
+		if(jok.getGaldu()) {
+			Nagusia.getNagusia().amaitu();
+		}
 	}
 }

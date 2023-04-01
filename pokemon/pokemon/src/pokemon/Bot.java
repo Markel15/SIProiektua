@@ -28,6 +28,5 @@ public class Bot extends Jokalaria{
 			this.setGaldu(); 
 			System.out.println(this.getName()+"-ek galdu du");
 		}
-		else Nagusia.getNagusia().hasi();
 	}
 }

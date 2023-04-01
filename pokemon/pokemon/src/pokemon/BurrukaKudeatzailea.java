@@ -23,6 +23,9 @@ public class BurrukaKudeatzailea {
 	public Pokemon getErasoPokemon() {
 		return this.erasoPokemon;
 	}
+	public Pokemon getJasoPokemon() {
+		return this.jasoPokemon;
+	}
 	public void burrukaKudeatu() {
 		if(this.erasoPokemon!=null&&this.jasoPokemon!=null) {//Hemen konproba beharko litzateke ea irabazlerik dagoen eta jokua amaitzekp
 			System.out.println("Burruka ondo kudeatu da");

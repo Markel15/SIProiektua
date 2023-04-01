@@ -1,11 +1,14 @@
 package pokemon;
 
 import java.util.Observable;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class Nagusia extends Observable{
 	
 	private static Nagusia nNagusia=null;
+	private Timer timer;
 	
 	private Nagusia() {
 	}
@@ -32,10 +35,17 @@ public class Nagusia extends Observable{
 		}
 	}
 	public void hasi() {
-		JokalariKatalogoa.getnJK().jokatu();	
+		TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+            	JokalariKatalogoa.getnJK().jokatu();
+            }
+        };
+        (this.timer = new Timer()).scheduleAtFixedRate(timerTask, 0, 2000);	
 	}
 	public void amaitu() {
-		System.out.println("Partida amaitu da");
+		this.timer.cancel();
+		this.timer.purge();
 	}
 
 }
