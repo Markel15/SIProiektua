@@ -218,7 +218,7 @@ public class Menu extends JFrame implements Observer{
 	}
 	private JLabel getImageLabel() {
 		if (imageLabel == null) {
-			imageLabel = new JLabel(new ImageIcon("./src/irudiak/main.png"));
+			imageLabel = new JLabel(new ImageIcon(Menu.class.getResource("/irudiak/main.png")));
 		}
 		return imageLabel;
 	}

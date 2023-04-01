@@ -65,7 +65,8 @@ public class JokalariPanela extends JFrame implements Observer{
 	private JLabel getLblTrainer() {
 		if (lblNewLabel == null) {
 			int zenb = new Random().nextInt(6);
-			lblNewLabel = new JLabel(new ImageIcon("./src/irudiak/Trainers/trainer"+zenb+".png"));
+			String argazkia="/irudiak/Trainers/trainer"+zenb+".png";
+			lblNewLabel = new JLabel(new ImageIcon(JokalariPanela.class.getResource(argazkia)));
 		}
 		return lblNewLabel;
 	}
@@ -103,7 +104,7 @@ public class JokalariPanela extends JFrame implements Observer{
 		 @Override
 	        public void mouseClicked(final MouseEvent e) {
 			 	if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getTurnoa() && ! (JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId())instanceof Bot) && JokalariPanela.this.isEnabled()) {
-			 		for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {//Igual se puede hacer con lo de Java8
+			 		for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {
 			 			PokemonPanela pp=(PokemonPanela)JokalariPanela.this.getPanel_Pokemon().getComponent(i);
 			 			if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getPokemonZer().aurkituPokemonIdz(pp.getPokId()).bizirikDago()) {
 			 				pp.setLblDisabled();

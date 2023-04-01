@@ -203,22 +203,22 @@ public class PokemonPanela extends JPanel implements Observer{
 	}
 	private void setArgazkia(String pMota) {
 		if(pMota.equals("Belarra")) {
-			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Grass/0bulbasaur.png"));
+			this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/Grass/0bulbasaur.png")));//JAR-ean funtzionatzeko. Esportatzerakoan, src karpeta ez da JAR-ean sartzen
 		}
 		else if(pMota.equals("Elektrikoa")) {
-			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Electric/0pikachu.png"));
+			this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/Electric/0pikachu.png")));
 		}
 		else if(pMota.equals("Sua")) {
-			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Fire/0charmander.png"));
+			this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/Fire/0charmander.png")));
 		}
 		else if(pMota.equals("Ur")) {
-			this.getLblNewLabel().setIcon(new ImageIcon("./src/irudiak/Water/0squirtle.png"));
+			this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/Water/0squirtle.png")));
 		}
 	}
 	private class MouseHandler extends MouseAdapter{
 		 @Override
 	        public void mouseClicked(final MouseEvent e) {
-			 if(PokemonPanela.this.getLblNewLabel().isEnabled() && BurrukaKudeatzailea.getnBK().getErasoPokemon()==null && JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa()) {
+			 if(PokemonPanela.this.getLblNewLabel().isEnabled() && BurrukaKudeatzailea.getnBK().getErasoPokemon()==null && JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa() && !(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId) instanceof Bot)) {
 				 PokemonPanela.this.getLblNewLabel().setEnabled(false);
 				 BurrukaKudeatzailea.getnBK().setErasoPokemon(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getPokemonZer().getPokemon_I(pokId));
 			 }
