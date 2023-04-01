@@ -13,7 +13,7 @@ public class PokemonZerrenda {
 	public void gehituPokemon(Pokemon pok) {
 			this.pokemonZer.add(pok);
 	}
-	public Pokemon getPokemon_I(int i) {
+	public Pokemon getPokemon_I(int i) {//Aurkitzeko pokemon-a posizioaren arabera
 		return pokemonZer.get(i);
 	}
 	private Iterator<Pokemon> getIter(){
@@ -29,7 +29,7 @@ public class PokemonZerrenda {
 	public int getSize() {
 		return this.pokemonZer.size();
 	}
-	public Pokemon aurkituPokemonIdz(int pId) {//pokemon guztietatik aurkitzeko
+	public Pokemon aurkituPokemonIdz(int pId) {//aurkitzeko pokemon-a idz
 		Iterator<Pokemon> itr=this.getIter();
 		boolean aurk=false;
 		Pokemon emaitza=null;
