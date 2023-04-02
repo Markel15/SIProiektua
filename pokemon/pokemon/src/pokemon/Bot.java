@@ -14,7 +14,7 @@ public class Bot extends Jokalaria{
 		int i=0;
 		boolean amaitu=false;
 		while (i<this.getBizirikDaudenak().getSize() && !amaitu){
-			Pokemon pok=this.getBizirikDaudenak().getPokemon_I(i);
+			Pokemon pok=this.getBizirikDaudenak().getPokemonAusaz();
 			BurrukaKudeatzailea.getnBK().setErasoPokemon(pok);
 			Jokalaria erasotua=JokalariKatalogoa.getnJK().getJokalariaAusaz(this);
 			if(erasotua.getBizirikDaudenak().getSize()==0) amaitu=true;
