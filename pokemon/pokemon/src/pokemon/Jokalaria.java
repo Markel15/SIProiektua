@@ -38,11 +38,6 @@ public class Jokalaria extends Observable{
 			System.out.println(this.getName() + "-ek galdu du");
 			Nagusia.getNagusia().amaitu();
 		}
-		else {
-			while(BurrukaKudeatzailea.getnBK().getErasoPokemon()==null || BurrukaKudeatzailea.getnBK().getJasoPokemon()==null) {
-				
-			}
-		}
 	}
 	public void berriztuPokemonak() {
 		this.pokemonZer.berriztu();
