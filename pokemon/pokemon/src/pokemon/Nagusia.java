@@ -33,6 +33,7 @@ public class Nagusia extends Observable{
 			this.setChanged();
 			this.notifyObservers(b.getId());
 		}
+		this.hasi();
 	}
 	public void hasi() {
 		TimerTask timerTask = new TimerTask() {

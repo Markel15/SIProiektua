@@ -13,13 +13,12 @@ public class Bot extends Jokalaria{
 		Random rand = new Random();
 		int i=0;
 		boolean amaitu=false;
+		Jokalaria erasotua=JokalariKatalogoa.getnJK().getJokalariaAusaz(this);
 		while (i<this.getBizirikDaudenak().getSize() && !amaitu){
-			Pokemon pok=this.getBizirikDaudenak().getPokemon_I(i);
-			BurrukaKudeatzailea.getnBK().setErasoPokemon(pok);
-			Jokalaria erasotua=JokalariKatalogoa.getnJK().getJokalariaAusaz(this);
+			BurrukaKudeatzailea.getnBK().setErasoPokemon(this.getId(),i);
 			if(erasotua.getBizirikDaudenak().getSize()==0) amaitu=true;
 			else {
-				BurrukaKudeatzailea.getnBK().setJasoPokemon(erasotua.getBizirikDaudenak().getPokemon_I(rand.nextInt(erasotua.getBizirikDaudenak().getSize())));
+				BurrukaKudeatzailea.getnBK().setJasoPokemon(erasotua.getId(),erasotua.getPokemonZer().getBizirikDagoenPosizioa());
 				BurrukaKudeatzailea.getnBK().burrukaKudeatu();
 				i++;
 			}
@@ -27,7 +26,12 @@ public class Bot extends Jokalaria{
 		if(this.getBizirikDaudenak().getSize()<=0) {
 			this.setGaldu(); 
 			System.out.println(this.getName()+"-ek galdu du");
-			Nagusia.getNagusia().amaitu();
+			this.setTurnoa(false);
+			this.berriztuInfo();
+		}
+		else if(erasotua.getBizirikDaudenak().getSize()<=0) {
+			erasotua.setGaldu();
+			erasotua.berriztuInfo();
 		}
 		
 	}

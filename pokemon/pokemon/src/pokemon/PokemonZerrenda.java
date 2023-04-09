@@ -2,6 +2,7 @@ package pokemon;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class PokemonZerrenda {
 	private ArrayList<Pokemon> pokemonZer;
@@ -29,6 +30,19 @@ public class PokemonZerrenda {
 	public int getSize() {
 		return this.pokemonZer.size();
 	}
+	public int getBizirikDagoenPosizioa() {
+		Random rand = new Random();
+		int emaitza=0;
+		boolean aurk=false;
+		while(!aurk) {
+			int aux=rand.nextInt(this.pokemonZer.size());
+			if(pokemonZer.get(aux).bizirikDago()) {
+				aurk=true;
+				emaitza=aux;
+			}
+		}
+		return emaitza;
+	}
 	public Pokemon aurkituPokemonIdz(int pId) {//aurkitzeko pokemon-a idz
 		Iterator<Pokemon> itr=this.getIter();
 		boolean aurk=false;
@@ -42,7 +56,7 @@ public class PokemonZerrenda {
 		}
 		return emaitza;
 	}
-	public PokemonZerrenda getBizirikDaudenak() {
+	public PokemonZerrenda getBizirikDaudenak() {//beharrezkoa Bot-ak eraso bat egiterakoan bizirik dagoen pokemon baten posizioa aurkitzeko
 		PokemonZerrenda emaitza=new PokemonZerrenda();
 		Iterator<Pokemon>itr=this.getIter();
 		while(itr.hasNext()) {

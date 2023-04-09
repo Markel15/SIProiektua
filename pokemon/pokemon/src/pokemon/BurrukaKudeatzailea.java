@@ -13,11 +13,11 @@ public class BurrukaKudeatzailea {
 		}
 		return nBK;
 	}
-	public void setErasoPokemon(Pokemon pPok) {
-		this.erasoPokemon=pPok;
+	public void setErasoPokemon(int pJokId, int pPokId) {
+		this.erasoPokemon=JokalariKatalogoa.getnJK().jokalariAurkituIdz(pJokId).getPokemonZer().getPokemon_I(pPokId);
 	}
-	public void setJasoPokemon(Pokemon pPok) {
-		this.jasoPokemon=pPok;
+	public void setJasoPokemon(int pJokId, int pPokId) {
+		this.jasoPokemon=JokalariKatalogoa.getnJK().jokalariAurkituIdz(pJokId).getPokemonZer().getPokemon_I(pPokId);
 	}
 	public Pokemon getErasoPokemon() {
 		return this.erasoPokemon;
@@ -31,7 +31,7 @@ public class BurrukaKudeatzailea {
 			this.getErasoPokemon().erasotu(this.jasoPokemon);
 		}
 		else System.out.println("Ezin izan da borroka kudeatu, datuak falta dira");
-		this.setJasoPokemon(null);
-		this.setErasoPokemon(null);
+		this.erasoPokemon=null;
+		this.jasoPokemon=null;
 	}
 }

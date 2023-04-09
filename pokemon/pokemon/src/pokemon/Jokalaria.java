@@ -35,8 +35,9 @@ public class Jokalaria extends Observable{
 	public void erasoEgin() {
 		if(this.getBizirikDaudenak().getSize()==0) {
 			this.setGaldu();
+			this.setTurnoa(false);
+			this.berriztuInfo();
 			System.out.println(this.getName() + "-ek galdu du");
-			Nagusia.getNagusia().amaitu();
 		}
 	}
 	public void berriztuPokemonak() {
@@ -53,9 +54,7 @@ public class Jokalaria extends Observable{
 	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
-		Object[] infoArray= {this.getTurnoa(),this.getGaldu()};
-		this.setChanged();
-		this.notifyObservers(infoArray);
+		this.berriztuInfo();
 	}
 	public boolean getTurnoa() {
 		return this.turnoa;
@@ -68,5 +67,10 @@ public class Jokalaria extends Observable{
 	}
 	public void setGaldu() {
 		this.galdu=true;
+	}
+	public void berriztuInfo() {
+		Object[] infoArray= {this.getTurnoa(),this.getGaldu()};
+		this.setChanged();
+		this.notifyObservers(infoArray);
 	}
 }

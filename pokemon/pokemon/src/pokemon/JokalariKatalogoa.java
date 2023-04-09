@@ -42,6 +42,18 @@ public class JokalariKatalogoa {
 		}
 		return emaitza;
 	}
+	private boolean irabazlerikDago() { //Agian JAVA8-rekin egin daiteke
+		boolean emaitza=false;
+		int i=0;
+		while(i<this.JokalariZer.size()&&!emaitza) {
+			if (this.JokalariZer.get(i).getGaldu()) {
+				emaitza=true;
+			}
+			i++;
+		}
+		return emaitza;
+	}
+	
 	public void jokatu() {
 		Iterator<Jokalaria> itr=this.getIter();
 		while(itr.hasNext()) {
@@ -52,7 +64,7 @@ public class JokalariKatalogoa {
 		if(!(jok instanceof Bot)) Nagusia.getNagusia().amaitu();
 		jok.setTurnoa(true);
 		jok.erasoEgin();
-		if(jok.getGaldu()) {
+		if(this.irabazlerikDago()) {
 			Nagusia.getNagusia().amaitu();
 		}
 	}
