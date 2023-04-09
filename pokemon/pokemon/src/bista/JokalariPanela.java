@@ -111,9 +111,7 @@ public class JokalariPanela extends JFrame implements Observer{
 			 			}
 			 			else pp.setLblEnabled();
 			 		}
-			 		if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getGaldu()) {
-			 			Nagusia.getNagusia().hasi();
-			 		}
+			 	Nagusia.getNagusia().hasi();
 			 	}
 			 	
 		 }
@@ -133,10 +131,12 @@ public class JokalariPanela extends JFrame implements Observer{
 			if(turnoa) {
 				this.getBtnNewButton().setText("g@!");
 				this.getBtnNewButton().setBackground(Color.green);
+				this.btnNewButton.setEnabled(true);
 			}
 			else {
 				this.getBtnNewButton().setText("wait");
 				this.getBtnNewButton().setBackground(Color.yellow);
+				this.btnNewButton.setEnabled(false);
 			}
 		}
 	}

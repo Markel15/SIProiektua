@@ -228,7 +228,6 @@ public class Menu extends JFrame implements Observer{
 				boolean ondo=false;
 				try {
 				Nagusia.getNagusia().partidaInizializatu(1 ,1, 5,3);//Integer.parseInt(getTextField_2().getText(), para leer el bloque de texto
-				Nagusia.getNagusia().hasi();
 				setVisible(false);
 				}
 				catch(NumberFormatException ex) { //Sartutakoa int ez bada, kudeatu
