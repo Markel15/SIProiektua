@@ -61,7 +61,7 @@ public abstract class Pokemon extends Observable{
 	public void erasotu(Pokemon pErasotua) {
 		int def=pErasotua.getDef();
 		int biz=pErasotua.getBiz();
-		int era=this.getEraso();
+		int era=this.getEraso()* this.biderkatzaileaLortu(pErasotua.mota);
 		int emaitza=biz-era+def;
 		if(def>era)emaitza=biz;//Defentsa, erasotzailearen erasoa baino handiagoa bada, 0-ra jarri, bestela, sendatuko litzateke (bizia handituko litzateke).
 		pErasotua.setBizia(emaitza);
@@ -101,4 +101,5 @@ public abstract class Pokemon extends Observable{
 			this.berriztuInfo();
 		}
 	}
+	protected abstract int biderkatzaileaLortu(String pMota);
 }
