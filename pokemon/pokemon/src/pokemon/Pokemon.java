@@ -22,7 +22,7 @@ public abstract class Pokemon extends Observable{
 		this.id=pId;
 		this.biziMax=bizia;
 		this.jokId=jokId;
-		this.eufMax=3+ new Random().nextInt(5);//3-7 arteko golpe kopuru jaso ahal izango du euforia egoerara sartu baino lehen
+		this.eufMax=3+ new Random().nextInt(0, 5);//3-7 arteko golpe kopuru jaso ahal izango du euforia egoerara sartu baino lehen
 		this.egoera=new Evo0();
 	}
 	
@@ -87,12 +87,16 @@ public abstract class Pokemon extends Observable{
 		this.euforia=pBalio;
 	}
 	private void eguneratuEgoera() {
-		if(this.bizia>this.biziMax/2) {
-			this.egoera=new Evo0();
+		if(this.getBiz()>=this.getBiziMax()/2)this.egoera=new Evo0();
+		if(this.getBiz()<this.getBiziMax()/2) {
+			this.egoera=new Evo1();
+			this.berriztuInfo();//Eboluzionatzen badu eta justu Euforia egoeran sartzen bada, eguneratzeko
 		}
-		if(this.getEuforia()==this.getEufMax()) {
-			this.egoera=new Euforia();
+		if(this.getBiz()<this.getBiziMax()/5) {
+			this.egoera=new Evo2();
+			this.berriztuInfo();
 		}
+		if(this.getEuforia()==this.getEufMax()) this.egoera=new Euforia();
 	}
 	public void eguneratuEuforiaEgoera() {//Euforia egoeran bazegoen atera egoera horretatik, bestela ez egin ezer
 		if(this.egoera instanceof Euforia) {
@@ -102,4 +106,8 @@ public abstract class Pokemon extends Observable{
 		}
 	}
 	protected abstract int biderkatzaileaLortu(String pMota);
+	
+	public int getEvo() {
+		return this.egoera.evoKop();
+	}
 }

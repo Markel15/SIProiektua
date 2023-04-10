@@ -4,5 +4,7 @@ public interface Egoera {
 	int egoerarenAraberakoErasoa();
 	
 	int egoerarenAraberakoDefentsa();
+	
+	int evoKop();
 
 }

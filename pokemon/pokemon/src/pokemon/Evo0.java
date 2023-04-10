@@ -14,4 +14,8 @@ public class Evo0 implements Egoera {
 	public int egoerarenAraberakoDefentsa() {
 		return 0;
 	}
+	@Override
+	public int evoKop() {
+		return 0;
+	}
 }

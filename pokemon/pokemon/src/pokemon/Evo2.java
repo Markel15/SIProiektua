@@ -1,23 +1,23 @@
 package pokemon;
 
-public class Euforia implements Egoera {
-	public Euforia() {
+public class Evo2 implements Egoera{
+	public Evo2() {
 		
 	}
 
 	@Override
 	public int egoerarenAraberakoErasoa() {
-		return 100;
+		// TODO Auto-generated method stub
+		return 7;
 	}
 
 	@Override
 	public int egoerarenAraberakoDefentsa() {
-		return 100;
+		// TODO Auto-generated method stub
+		return 5;
 	}
-
 	@Override
 	public int evoKop() {
-		return 3;
+		return 2;
 	}
-
 }

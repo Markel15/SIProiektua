@@ -32,6 +32,9 @@ public class BurrukaKudeatzailea {
 			this.getErasoPokemon().eguneratuEuforiaEgoera();
 		}
 		else System.out.println("Ezin izan da borroka kudeatu, datuak falta dira");
+		this.garbituErregistroa();
+	}
+	public void garbituErregistroa() {
 		this.erasoPokemon=null;
 		this.jasoPokemon=null;
 	}
