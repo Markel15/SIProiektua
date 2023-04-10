@@ -22,7 +22,7 @@ public abstract class Pokemon extends Observable{
 		this.id=pId;
 		this.biziMax=bizia;
 		this.jokId=jokId;
-		this.eufMax=3+ new Random().nextInt(0, 5);//3-7 arteko golpe kopuru jaso ahal izango du euforia egoerara sartu baino lehen
+		this.eufMax=3+ new Random().nextInt(5);//3-7 arteko golpe kopuru jaso ahal izango du euforia egoerara sartu baino lehen
 		this.egoera=new Evo0();
 	}
 	
