@@ -39,6 +39,7 @@ public class PokemonPanela extends JPanel implements Observer{
 	private JLabel lblNewLabel_7;
 	private JLabel lblNewLabel_8;
 	private JProgressBar progressBar;
+	private JProgressBar progressBar2;
 	private int jokId;
 	private int pokId;
 
@@ -97,7 +98,9 @@ public class PokemonPanela extends JPanel implements Observer{
 	private JPanel getPanel_2() {
 		if (panel_2 == null) {
 			panel_2 = new JPanel();
+			panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 			panel_2.add(getBiziBarra());
+			panel_2.add(getEuforiaBarra());
 		}
 		return panel_2;
 	}
@@ -169,6 +172,17 @@ public class PokemonPanela extends JPanel implements Observer{
 		}
 		return progressBar;
 	}
+	private JProgressBar getEuforiaBarra() {
+		if(progressBar2==null) {
+			progressBar2=new JProgressBar();
+			this.progressBar2.setBackground(Color.white);
+			this.progressBar2.setForeground(Color.MAGENTA);
+			this.progressBar2.setString("Euphoria");
+			this.progressBar2.setStringPainted(true);
+			this.progressBar2.setBorderPainted(true);
+		}
+		return progressBar2;
+	}
 	public void setLblEnabled() {
 		this.getLblNewLabel().setEnabled(true);
 	}
@@ -195,10 +209,20 @@ public class PokemonPanela extends JPanel implements Observer{
 		this.getBiziBarra().setValue((pok.getBiz()*100)/pok.getBiziMax());
 		if(this.getBiziBarra().getValue()<=50)this.getBiziBarra().setForeground(Color.yellow);
 		if(this.getBiziBarra().getValue()<=20)this.getBiziBarra().setForeground(Color.red);
+		this.getEuforiaBarra().setValue((pok.getEuforia()*100)/pok.getEufMax());
+		if(this.getEuforiaBarra().getValue()==100) {
+			this.getLblNewLabel_5().setForeground(Color.MAGENTA);
+			this.getLblNewLabel_6().setForeground(Color.MAGENTA);
+		}
+		else {
+			this.getLblNewLabel_5().setForeground(Color.black);
+			this.getLblNewLabel_6().setForeground(Color.black);
+		}
 		this.setArgazkia(pok.getMota());
 		if(!pok.bizirikDago()) {
 			this.getPanel().setVisible(false);
 			this.getLblNewLabel().setEnabled(false);
+			this.getPanel_2().setVisible(false);
 		}
 	}
 	private void setArgazkia(String pMota) {
