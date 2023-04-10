@@ -54,6 +54,7 @@ public class Jokalaria extends Observable{
 	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
+		if(this.getBizirikDaudenak().getSize()==0)this.setGaldu();//Bot-ak galtzen duenean ezin da jarri galdu duela, orduan hemen berrizten da horrela galdu duela ikusteko ahsieratik
 		this.berriztuInfo();
 	}
 	public boolean getTurnoa() {
