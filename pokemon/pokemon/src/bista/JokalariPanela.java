@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import pokemon.Bot;
+import pokemon.BurrukaKudeatzailea;
 import pokemon.JokalariKatalogoa;
 import pokemon.Nagusia;
 
@@ -111,7 +112,8 @@ public class JokalariPanela extends JFrame implements Observer{
 			 			}
 			 			else pp.setLblEnabled();
 			 		}
-			 	Nagusia.getNagusia().hasi();
+			 		BurrukaKudeatzailea.getnBK().garbituErregistroa();
+			 		Nagusia.getNagusia().hasi();
 			 	}
 			 	
 		 }
