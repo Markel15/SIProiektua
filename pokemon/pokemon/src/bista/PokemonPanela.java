@@ -247,6 +247,41 @@ public class PokemonPanela extends JPanel implements Observer{
 			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/Water/1wartortle.png")));
 			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/Water/2blastoise.png")));
 		}
+		else if(pMota.equals("Psikikoa")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/abra.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/kadabra.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/alakazam.png")));
+		}
+		else if(pMota.equals("Zomorro")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/caterpie.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/metapod.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/butterfree.png")));
+		}
+		else if(pMota.equals("Dragoia")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/dratini.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/dragonair.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/dragonite.png")));
+		}
+		else if(pMota.equals("Mamua")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/gastly.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/haunter.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/gengar.png")));
+		}
+		else if(pMota.equals("Arroka")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/geodude.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/graveler.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/golem.png")));
+		}
+		else if(pMota.equals("Borroka")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/machop.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/machoke.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/machamp.png")));
+		}
+		else if(pMota.equals("Hegalaria")) {
+			if(evo==0)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/pidgey.png")));
+			else if(evo==1)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/pidgeot.png")));
+			else if(evo==2)this.getLblNewLabel().setIcon(new ImageIcon(PokemonPanela.class.getResource("/irudiak/pidgeotto.png")));
+		}
 	}
 	private class MouseHandler extends MouseAdapter{
 		 @Override
