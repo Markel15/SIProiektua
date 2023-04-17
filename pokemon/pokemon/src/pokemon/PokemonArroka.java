@@ -9,6 +9,7 @@ public class PokemonArroka extends Pokemon {
 	@Override
 	protected int biderkatzaileaLortu(String pMota) {
 		if(pMota.equals("Belarra") || pMota.equals("Hegalaria") || pMota.equals("Sua"))return 2;
+		//else if(pMota.equals("Borroka"))return 0.5;
 		else return 1;
 	}
 }
