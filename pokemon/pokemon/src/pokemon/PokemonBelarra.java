@@ -8,7 +8,7 @@ public class PokemonBelarra extends Pokemon {
 
 	@Override
 	protected int biderkatzaileaLortu(String pMota) {
-		if(pMota.equals("Elektrikoa"))return 2;
+		if(pMota.equals("Elektrikoa") || pMota.equals("Ura") || pMota.equals("Arroka"))return 2;
 		else return 1;
 	}
 }
