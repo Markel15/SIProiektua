@@ -15,7 +15,7 @@ public class Jokalaria extends Observable{
 		this.pokemonZer = new PokemonZerrenda();
 		this.izena="Jokalari"+(pId+1);
 		for (int i=0;i<pKop;i++) {
-			int mota=new Random().nextInt(4);
+			int mota=new Random().nextInt(11);
 			Pokemon pok=PokemonFactory.getPokemonFactory().createPokemon(mota,pId);
 			this.pokemonZer.gehituPokemon(pok);
 		}
