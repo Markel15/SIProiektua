@@ -9,7 +9,7 @@ public class PokemonUra extends Pokemon{
 	@Override
 	protected int biderkatzaileaLortu(String pMota) {
 		if(pMota.equals("Sua") || pMota.equals("Arroka"))return 2;
-		//else if(pMota.equals("Ura") || pMota.equals("Belarra") || pMota.equals("Dragoia"))return 0.5;
+		//else if(pMota.equals("Ur") || pMota.equals("Belarra") || pMota.equals("Dragoia"))return 0.5;
 		else return 1;
 	}
 }
