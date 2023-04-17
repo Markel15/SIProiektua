@@ -8,7 +8,8 @@ public class PokemonElektrikoa extends Pokemon {
 
 	@Override
 	protected int biderkatzaileaLortu(String pMota) {
-		if(pMota.equals("Ur"))return 2;
+		if(pMota.equals("Ur") || pMota.equals("Hegalaria"))return 2;
+		//else if(pMota.equals("Belarra") || pMota.equals("Elektrikoa") || pMota.equals("Dragoia"))return 0.5;
 		else return 1;
 	}
 }
