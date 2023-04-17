@@ -8,7 +8,7 @@ public class PokemonDragoia extends Pokemon {
 
 	@Override
 	protected int biderkatzaileaLortu(String pMota) {
-		if(pMota.equals(" "))return 2;
+		if(pMota.equals("Dragoia"))return 2;
 		else return 1;
 	}
 }
