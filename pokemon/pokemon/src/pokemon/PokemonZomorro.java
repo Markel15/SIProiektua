@@ -8,7 +8,8 @@ public class PokemonZomorro extends Pokemon {
 
 	@Override
 	protected int biderkatzaileaLortu(String pMota) {
-		if(pMota.equals(" "))return 2;
+		if(pMota.equals("Belarra") || pMota.equals("Psikikoa"))return 2;
+		//else if(pMota.equals("Hegalaria") || pMota.equals("Sua") || pMota.equals("Borroka") || pMota.equals("Mamua"))return 0.5;
 		else return 1;
 	}
 }
