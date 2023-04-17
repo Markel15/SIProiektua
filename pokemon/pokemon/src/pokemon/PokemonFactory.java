@@ -29,6 +29,27 @@ public class PokemonFactory {
 		else if (pMota==3) {
 			p = new PokemonElektrikoa(kont,pJokId);
 		}
+		else if (pMota==4) {
+			p = new PokemonArroka(kont,pJokId);
+		}
+		else if (pMota==5) {
+			p = new PokemonBorroka(kont,pJokId);
+		}
+		else if (pMota==6) {
+			p = new PokemonDragoia(kont,pJokId);
+		}
+		else if (pMota==7) {
+			p = new PokemonHegalaria(kont,pJokId);
+		}
+		else if (pMota==8) {
+			p = new PokemonMamua(kont,pJokId);
+		}
+		else if (pMota==9) {
+			p = new PokemonPsikikoa(kont,pJokId);
+		}
+		else if (pMota==10) {
+			p = new PokemonZomorro(kont,pJokId);
+		}
 		kont++;
 		return p;
 	}
