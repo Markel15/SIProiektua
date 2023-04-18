@@ -56,6 +56,7 @@ public class PokemonZerrenda {
 		}
 		return emaitza;
 	}
+	//Hurrengoa JAVA8-rekin egin daiteke
 	public PokemonZerrenda getBizirikDaudenak() {//beharrezkoa Bot-ak eraso bat egiterakoan bizirik dagoen pokemon baten posizioa aurkitzeko
 		PokemonZerrenda emaitza=new PokemonZerrenda();
 		Iterator<Pokemon>itr=this.getIter();

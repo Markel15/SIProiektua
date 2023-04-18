@@ -52,6 +52,9 @@ public class Jokalaria extends Observable{
 	public Pokemon aurkituPokemonIdz(int pId) {
 		return this.pokemonZer.aurkituPokemonIdz(pId);
 	}
+	public Pokemon getPokemonPosizioz(int pPosizio) {
+		return this.pokemonZer.getPokemon_I(pPosizio);
+	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
 		if(this.getBizirikDaudenak().getSize()==0)this.setGaldu();//Bot-ak galtzen duenean ezin da jarri galdu duela, orduan hemen berrizten da horrela galdu duela ikusteko ahsieratik

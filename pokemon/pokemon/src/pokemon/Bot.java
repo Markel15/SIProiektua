@@ -14,14 +14,16 @@ public class Bot extends Jokalaria{
 		int i=0;
 		boolean amaitu=false;
 		Jokalaria erasotua=JokalariKatalogoa.getnJK().getJokalariaAusaz(this);
-		while (i<this.getBizirikDaudenak().getSize() && !amaitu){
-			BurrukaKudeatzailea.getnBK().setErasoPokemon(this.getId(),i);
-			if(erasotua.getBizirikDaudenak().getSize()==0) amaitu=true;
-			else {
-				BurrukaKudeatzailea.getnBK().setJasoPokemon(erasotua.getId(),erasotua.getPokemonZer().getBizirikDagoenPosizioa());
-				BurrukaKudeatzailea.getnBK().burrukaKudeatu();
-				i++;
+		while (i<this.getPokemonZer().getSize() && !amaitu){
+			if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(this.getId()).getPokemonPosizioz(i).bizirikDago()) {
+				BurrukaKudeatzailea.getnBK().setErasoPokemon(this.getId(),i);
+				if(erasotua.getBizirikDaudenak().getSize()==0) amaitu=true;
+				else {
+					BurrukaKudeatzailea.getnBK().setJasoPokemon(erasotua.getId(),erasotua.getPokemonZer().getBizirikDagoenPosizioa());
+					BurrukaKudeatzailea.getnBK().burrukaKudeatu();
+				}
 			}
+			i++;
 		}
 		if(this.getBizirikDaudenak().getSize()<=0) {
 			this.setGaldu(); 
