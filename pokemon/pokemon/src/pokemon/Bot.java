@@ -17,7 +17,7 @@ public class Bot extends Jokalaria{
 		while (i<this.getPokemonZer().getSize() && !amaitu){
 			if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(this.getId()).getPokemonPosizioz(i).bizirikDago()) {
 				BurrukaKudeatzailea.getnBK().setErasoPokemon(this.getId(),i);
-				if(erasotua.getBizirikDaudenak().getSize()==0) amaitu=true;
+				if(erasotua.getBizirikDaudenak()==0) amaitu=true;
 				else {
 					BurrukaKudeatzailea.getnBK().setJasoPokemon(erasotua.getId(),erasotua.getPokemonZer().getBizirikDagoenPosizioa());
 					BurrukaKudeatzailea.getnBK().burrukaKudeatu();
@@ -25,13 +25,13 @@ public class Bot extends Jokalaria{
 			}
 			i++;
 		}
-		if(this.getBizirikDaudenak().getSize()<=0) {
+		if(this.getBizirikDaudenak()<=0) {
 			this.setGaldu(); 
 			System.out.println(this.getName()+"-ek galdu du");
 			this.setTurnoa(false);
 			this.berriztuInfo();
 		}
-		else if(erasotua.getBizirikDaudenak().getSize()<=0) {
+		else if(erasotua.getBizirikDaudenak()<=0) {
 			erasotua.setGaldu();
 			erasotua.berriztuInfo();
 		}

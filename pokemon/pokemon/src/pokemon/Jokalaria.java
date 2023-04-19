@@ -33,7 +33,7 @@ public class Jokalaria extends Observable{
 		return this.pokemonZer;
 	}
 	public void erasoEgin() {
-		if(this.getBizirikDaudenak().getSize()==0) {
+		if(this.getBizirikDaudenak()==0) {
 			this.setGaldu();
 			this.setTurnoa(false);
 			this.berriztuInfo();
@@ -57,13 +57,13 @@ public class Jokalaria extends Observable{
 	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
-		if(this.getBizirikDaudenak().getSize()==0)this.setGaldu();//Bot-ak galtzen duenean ezin da jarri galdu duela, orduan hemen berrizten da horrela galdu duela ikusteko ahsieratik
+		if(this.getBizirikDaudenak()==0)this.setGaldu();//Bot-ak galtzen duenean ezin da jarri galdu duela, orduan hemen berrizten da horrela galdu duela ikusteko ahsieratik
 		this.berriztuInfo();
 	}
 	public boolean getTurnoa() {
 		return this.turnoa;
 	}
-	public PokemonZerrenda getBizirikDaudenak(){
+	public long getBizirikDaudenak(){
 		return this.pokemonZer.getBizirikDaudenak();
 	}
 	public boolean getGaldu() {
