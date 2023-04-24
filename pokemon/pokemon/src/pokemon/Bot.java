@@ -26,13 +26,9 @@ public class Bot extends Jokalaria{
 			i++;
 		}
 		if(this.getBizirikDaudenak()<=0) {
-			this.setGaldu(); 
 			System.out.println(this.getName()+"-ek galdu du");
-			this.setTurnoa(false);
-			this.berriztuInfo();
 		}
 		else if(erasotua.getBizirikDaudenak()<=0) {
-			erasotua.setGaldu();
 			erasotua.berriztuInfo();
 		}
 		

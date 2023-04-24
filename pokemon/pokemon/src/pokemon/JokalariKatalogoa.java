@@ -58,6 +58,9 @@ public class JokalariKatalogoa {
 		Iterator<Jokalaria> itr=this.getIter();
 		while(itr.hasNext()) {
 			Jokalaria j=itr.next();
+			if(j.getBizirikDaudenak()==0) {
+				j.setGaldu();
+			}
 			j.setTurnoa(false);
 		}
 		Jokalaria jok=this.getJokalariaAusaz(null);

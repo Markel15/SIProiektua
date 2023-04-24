@@ -44,27 +44,9 @@ public class PokemonZerrenda {
 		return emaitza;
 	}
 	public Pokemon aurkituPokemonIdz(int pId) {//aurkitzeko pokemon-a idz
-		Iterator<Pokemon> itr=this.getIter();
-		boolean aurk=false;
-		Pokemon emaitza=null;
-		while(itr.hasNext()&&!aurk) {
-			Pokemon pok=itr.next();
-			if(pok.getId()==pId) {
-				emaitza=pok;
-				aurk=true;
-			}
-		}
-		return emaitza;
+		return pokemonZer.stream().filter(p->p.getId()==pId).findFirst().orElse(null);
 	}
-	//Hurrengoa JAVA8-rekin egin daiteke
 	public long getBizirikDaudenak() {//beharrezkoa Bot-ak eraso bat egiterakoan bizirik dagoen pokemon baten posizioa aurkitzeko
-		/*PokemonZerrenda emaitza=new PokemonZerrenda();
-		Iterator<Pokemon>itr=this.getIter();
-		while(itr.hasNext()) {
-			Pokemon p=itr.next();
-			if (p.bizirikDago()) emaitza.gehituPokemon(p);
-		}
-		return emaitza;*/
 		return pokemonZer.stream().filter(Pokemon :: bizirikDago).count();
 	}
 }

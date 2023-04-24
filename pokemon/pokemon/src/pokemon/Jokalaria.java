@@ -34,9 +34,6 @@ public class Jokalaria extends Observable{
 	}
 	public void erasoEgin() {
 		if(this.getBizirikDaudenak()==0) {
-			this.setGaldu();
-			this.setTurnoa(false);
-			this.berriztuInfo();
 			System.out.println(this.getName() + "-ek galdu du");
 		}
 	}
