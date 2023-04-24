@@ -42,16 +42,8 @@ public class JokalariKatalogoa {
 		}
 		return emaitza;
 	}
-	private boolean irabazlerikDago() { //Agian JAVA8-rekin egin daiteke
-		boolean emaitza=false;
-		int i=0;
-		while(i<this.JokalariZer.size()&&!emaitza) {
-			if (this.JokalariZer.get(i).getGaldu()) {
-				emaitza=true;
-			}
-			i++;
-		}
-		return emaitza;
+	private boolean irabazlerikDago() {
+		return JokalariZer.stream().filter(Jokalaria::getGaldu).count()==JokalariZer.size()-1;
 	}
 	
 	public void jokatu() {
