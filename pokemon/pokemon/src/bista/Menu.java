@@ -12,6 +12,7 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import pokemon.Jokalaria;
@@ -236,8 +237,6 @@ public class Menu extends JFrame implements Observer{
 					Menu.this.bot_kop = Integer.parseInt(getTextField_1().getText());
 					Menu.this.pokemon_kop = Integer.parseInt(getTextField_3().getText());
 					Menu.this.milisec_kop = Integer.parseInt(getTextField_2().getText());
-					Nagusia.getNagusia().partidaInizializatu(Menu.this.jok_kop ,Menu.this.bot_kop, Menu.this.milisec_kop, Menu.this.pokemon_kop);//Integer.parseInt(getTextField_2().getText(), para leer el bloque de texto
-					setVisible(false);
 				}
 				catch(NumberFormatException ex) { //Sartutakoa int ez bada, kudeatu
 					System.out.println("Sartutako datuek ez dute balio, saiatu berriz.");
@@ -246,6 +245,14 @@ public class Menu extends JFrame implements Observer{
 					getTextField_2().setText("");
 					getTextField_3().setText("");
 				}
+					if((Menu.this.jok_kop==0 && Menu.this.bot_kop==0) || (Menu.this.jok_kop==1 && Menu.this.bot_kop==0) || (Menu.this.jok_kop==0 && Menu.this.bot_kop==1)){
+						JOptionPane.showMessageDialog(null, "Sartu gutxienez 2 jokalari (bot edo jokalari) ");
+						getTextField().setText("");
+						getTextField_1().setText("");
+					}
+					else {
+						Nagusia.getNagusia().partidaInizializatu(Menu.this.jok_kop ,Menu.this.bot_kop, Menu.this.milisec_kop, Menu.this.pokemon_kop);//Integer.parseInt(getTextField_2().getText(), para leer el bloque de texto
+					}
 			}
 			else {
 				readMe rm=new readMe();
