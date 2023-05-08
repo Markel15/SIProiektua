@@ -140,7 +140,6 @@ public class JokalariPanela extends JFrame implements Observer{
 				this.getBtnNewButton().setBackground(Color.yellow);
 				this.btnNewButton.setEnabled(false);
 			}
-			if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId) instanceof Bot)this.getBtnNewButton().setEnabled(false);
 		}
 	}
 }

@@ -44,6 +44,10 @@ public class Menu extends JFrame implements Observer{
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JLabel imageLabel;
+	private int pokemon_kop;
+	public int milisec_kop;
+	public int bot_kop;
+	public int jok_kop;
 
 	/**
 	 * Launch the application.
@@ -222,13 +226,18 @@ public class Menu extends JFrame implements Observer{
 		}
 		return imageLabel;
 	}
+	
 	private class botoiKontroladore implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==getBtn_Start()) {//Hurrengo orria ireki eta partida inizializatu
 				boolean ondo=false;
 				try {
-				Nagusia.getNagusia().partidaInizializatu(1 ,1, 5,3);//Integer.parseInt(getTextField_2().getText(), para leer el bloque de texto
-				setVisible(false);
+					Menu.this.jok_kop = Integer.parseInt(getTextField().getText());
+					Menu.this.bot_kop = Integer.parseInt(getTextField_1().getText());
+					Menu.this.pokemon_kop = Integer.parseInt(getTextField_3().getText());
+					Menu.this.milisec_kop = Integer.parseInt(getTextField_2().getText());
+					Nagusia.getNagusia().partidaInizializatu(Menu.this.jok_kop ,Menu.this.bot_kop, Menu.this.milisec_kop, Menu.this.pokemon_kop);//Integer.parseInt(getTextField_2().getText(), para leer el bloque de texto
+					setVisible(false);
 				}
 				catch(NumberFormatException ex) { //Sartutakoa int ez bada, kudeatu
 					System.out.println("Sartutako datuek ez dute balio, saiatu berriz.");
@@ -250,10 +259,10 @@ public class Menu extends JFrame implements Observer{
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
 		Jokalaria j=JokalariKatalogoa.getnJK().jokalariAurkituIdz((int)arg);
-		JokalariPanela jp=new JokalariPanela((int)arg,j.getName(),3);
+		JokalariPanela jp=new JokalariPanela((int)arg,j.getName(),pokemon_kop);
 		JokalariKatalogoa.getnJK().jokalariAurkituIdz((int) arg).addObserver((Observer) jp);
 		jp.setVisible(true);
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<pokemon_kop;i++) {
 			j.getPokemonZer().getPokemon_I(i).addObserver((Observer) jp.getPanel_Pokemon().getComponent(i) );
 			j.berriztuPokemonak();
 		}
