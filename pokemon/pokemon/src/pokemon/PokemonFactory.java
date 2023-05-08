@@ -14,7 +14,7 @@ public class PokemonFactory {
 		return inst;
 	}
 	
-	public Pokemon createPokemon(int pMota,int pJokId,int pPokId) {
+	public Pokemon createPokemon(int pMota,int pJokId, int pPokId) {
 		Pokemon p = null;
 		if (pMota==0) {
 			p = new PokemonUra(pPokId,pJokId);

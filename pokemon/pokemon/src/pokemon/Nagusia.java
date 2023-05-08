@@ -9,6 +9,7 @@ public class Nagusia extends Observable{
 	
 	private static Nagusia nNagusia=null;
 	private Timer timer;
+	private int milisec_kop;
 	
 	private Nagusia() {
 	}
@@ -33,6 +34,7 @@ public class Nagusia extends Observable{
 			this.setChanged();
 			this.notifyObservers(b.getId());
 		}
+		this.milisec_kop = pMilisec;
 		this.hasi();
 	}
 	public void hasi() {
@@ -42,7 +44,7 @@ public class Nagusia extends Observable{
             	JokalariKatalogoa.getnJK().jokatu();
             }
         };
-        (this.timer = new Timer()).scheduleAtFixedRate(timerTask, 0, 2000);	
+        (this.timer = new Timer()).scheduleAtFixedRate(timerTask, 0, this.milisec_kop);	
 	}
 	public void amaitu() {
 		this.timer.cancel();

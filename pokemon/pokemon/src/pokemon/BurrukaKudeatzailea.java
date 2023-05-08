@@ -30,6 +30,7 @@ public class BurrukaKudeatzailea {
 			System.out.println("Burruka ondo kudeatu da");
 			this.getErasoPokemon().erasotu(this.jasoPokemon);
 			this.getErasoPokemon().eguneratuEuforiaEgoera();
+			JokalariKatalogoa.getnJK().jokalariAurkituIdz(this.getJasoPokemon().getJokId()).berriztuInfo();
 		}
 		else System.out.println("Ezin izan da borroka kudeatu, datuak falta dira");
 		this.garbituErregistroa();

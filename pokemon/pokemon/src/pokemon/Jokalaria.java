@@ -16,7 +16,7 @@ public class Jokalaria extends Observable{
 		this.izena="Jokalari"+(pId+1);
 		for (int i=0;i<pKop;i++) {
 			int mota=new Random().nextInt(11);
-			Pokemon pok=PokemonFactory.getPokemonFactory().createPokemon(mota,pId,i);
+			Pokemon pok=PokemonFactory.getPokemonFactory().createPokemon(mota,pId, i);
 			this.pokemonZer.gehituPokemon(pok);
 		}
 		this.id=pId;
@@ -51,7 +51,7 @@ public class Jokalaria extends Observable{
 	}
 	public void setTurnoa(boolean b) {
 		this.turnoa=b;
-		if(this.getBizirikDaudenak()==0)this.setGaldu();//Bot-ak galtzen duenean ezin da jarri galdu duela, orduan hemen berrizten da horrela galdu duela ikusteko ahsieratik
+		//Bot-ak galtzen duenean ezin da jarri galdu duela, orduan hemen berrizten da horrela galdu duela ikusteko ahsieratik
 		this.berriztuInfo();
 	}
 	public boolean getTurnoa() {
@@ -64,9 +64,12 @@ public class Jokalaria extends Observable{
 		return this.galdu;
 	}
 	public void setGaldu() {
-		this.galdu=true;
+		if(this.getBizirikDaudenak()==0) {
+			this.galdu = true;
+		}
 	}
 	public void berriztuInfo() {
+		this.setGaldu();
 		Object[] infoArray= {this.getTurnoa(),this.getGaldu()};
 		this.setChanged();
 		this.notifyObservers(infoArray);
