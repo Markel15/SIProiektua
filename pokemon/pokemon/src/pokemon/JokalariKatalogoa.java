@@ -38,7 +38,7 @@ public class JokalariKatalogoa {
 		while(!aurk) {
 			int jok=rand.nextInt(JokalariZer.size());
 			emaitza=JokalariZer.get(jok);
-			if(!emaitza.equals(pJok)) aurk=true;
+			if(!emaitza.equals(pJok) && !emaitza.getGaldu()) aurk=true;
 		}
 		return emaitza;
 	}
