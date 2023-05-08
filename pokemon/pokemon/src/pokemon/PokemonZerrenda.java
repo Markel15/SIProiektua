@@ -43,9 +43,6 @@ public class PokemonZerrenda {
 		}
 		return emaitza;
 	}
-	public Pokemon aurkituPokemonIdz(int pId) {//aurkitzeko pokemon-a idz
-		return pokemonZer.stream().filter(p->p.getId()==pId).findFirst().orElse(null);
-	}
 	public long getBizirikDaudenak() {//beharrezkoa Bot-ak eraso bat egiterakoan bizirik dagoen pokemon baten posizioa aurkitzeko
 		return pokemonZer.stream().filter(Pokemon :: bizirikDago).count();
 	}

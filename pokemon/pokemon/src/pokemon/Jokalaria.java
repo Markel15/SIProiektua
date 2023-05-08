@@ -16,7 +16,7 @@ public class Jokalaria extends Observable{
 		this.izena="Jokalari"+(pId+1);
 		for (int i=0;i<pKop;i++) {
 			int mota=new Random().nextInt(11);
-			Pokemon pok=PokemonFactory.getPokemonFactory().createPokemon(mota,pId);
+			Pokemon pok=PokemonFactory.getPokemonFactory().createPokemon(mota,pId,i);
 			this.pokemonZer.gehituPokemon(pok);
 		}
 		this.id=pId;
@@ -45,9 +45,6 @@ public class Jokalaria extends Observable{
 	}
 	public boolean jokalariDa(int pId) {
 		return this.id==pId;
-	}
-	public Pokemon aurkituPokemonIdz(int pId) {
-		return this.pokemonZer.aurkituPokemonIdz(pId);
 	}
 	public Pokemon getPokemonPosizioz(int pPosizio) {
 		return this.pokemonZer.getPokemon_I(pPosizio);
