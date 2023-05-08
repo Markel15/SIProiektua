@@ -201,7 +201,7 @@ public class PokemonPanela extends JPanel implements Observer{
 		int jokId=(int)arr[0];
 		int pokId=(int)arr[1];
 		Jokalaria jok=JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId);
-		Pokemon pok=jok.aurkituPokemonIdz(pokId);
+		Pokemon pok=jok.getPokemonPosizioz(pokId);
 		this.getLblNewLabel_5().setText(Integer.toString(pok.getEraso()));
 		this.getLblNewLabel_6().setText(Integer.toString(pok.getDef()));
 		this.getLblNewLabel_7().setText(Integer.toString(pok.getBiz())+"/"+Integer.toString(pok.getBiziMax()));

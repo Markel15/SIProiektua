@@ -107,7 +107,7 @@ public class JokalariPanela extends JFrame implements Observer{
 			 	if(JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getTurnoa() && ! (JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId())instanceof Bot) && JokalariPanela.this.isEnabled()) {
 			 		for (int i=0;i<JokalariPanela.this.getPanel_Pokemon().getComponentCount();i++) {
 			 			PokemonPanela pp=(PokemonPanela)JokalariPanela.this.getPanel_Pokemon().getComponent(i);
-			 			if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getPokemonZer().aurkituPokemonIdz(pp.getPokId()).bizirikDago()) {
+			 			if(!JokalariKatalogoa.getnJK().jokalariAurkituIdz(JokalariPanela.this.getJokId()).getPokemonZer().getPokemon_I(pp.getPokId()).bizirikDago()) {
 			 				pp.setLblDisabled();
 			 			}
 			 			else pp.setLblEnabled();
