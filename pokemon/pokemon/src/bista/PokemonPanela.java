@@ -236,7 +236,7 @@ public class PokemonPanela extends JPanel implements Observer{
 		 @Override
 	        public void mouseClicked(final MouseEvent e) {
 			 if(PokemonPanela.this.getLblNewLabel().isEnabled() && BurrukaKudeatzailea.getnBK().getErasoPokemon()==null && JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa() && !(JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId) instanceof Bot)) {
-				 PokemonPanela.this.getLblNewLabel().setEnabled(false);
+				 PokemonPanela.this.setLblDisabled();
 				 BurrukaKudeatzailea.getnBK().setErasoPokemon(PokemonPanela.this.jokId,PokemonPanela.this.pokId);
 			 }
 			 else if(PokemonPanela.this.getLblNewLabel().isEnabled() && !JokalariKatalogoa.getnJK().jokalariAurkituIdz(jokId).getTurnoa()) {
